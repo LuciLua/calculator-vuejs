@@ -1,11 +1,15 @@
 <template>
   <div id="app">
     <h1>Calculadora</h1>
+    <Calculator />
   </div>
 </template>
 <script>
+import Calculator from "./main/Calculator.vue";
 // versao de dependencias nao esta dando certo com as atuais
-export default {};
+export default {
+  components: { Calculator },
+};
 </script>
 
 <style>
