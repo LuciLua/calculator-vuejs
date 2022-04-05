@@ -1,5 +1,10 @@
 <template>
-  <button class="button" :class="{ double, triple, operation }">
+  <!-- $emit vai emitir uma evento -->
+  <button
+    @click="$emit('onClick', label)"
+    class="button"
+    :class="{ double, triple, operation }"
+  >
     {{ label }}
   </button>
 </template>
@@ -15,39 +20,37 @@ export default {
 };
 </script>
 <style>
-  :root{
-    --bg-button: #f0f0f0;
-    --border-button: solid 1px #888;
+:root {
+  --bg-button: #f0f0f0;
+  --border-button: solid 1px #888;
+}
 
-  }
+.button {
+  font-size: 1.4em;
+  background-color: var(--bg-button);
+  border: none;
+  border-right: var(--border-button);
+  border-bottom: var(--border-button);
+  outline: none;
+}
 
-  .button{
-    font-size: 1.4em;
-    background-color: var(--bg-button);
-    border: none;
-    border-right: var(--border-button);
-    border-bottom: var(--border-button);
-    outline: none;
-  }
+.button:active {
+  background-color: #ccc;
+}
 
-  .button:active{
-    background-color: #ccc;
-  }
+.button.double {
+  grid-column: span 2;
+}
+.button.triple {
+  grid-column: span 3;
+}
 
-  .button.double{
-    grid-column: span 2;
-  }
-  .button.triple{
-    grid-column: span 3;
-  }
+.button.operation {
+  background-color: #fa8231;
+  color: #fff;
+}
 
-  .button.operation{
-    background-color: #fa8231;
-    color: #fff;
-  }
-
-  .button.operation:active{
-    background-color: #fa8231cc;
-  }
-
+.button.operation:active {
+  background-color: #fa8231cc;
+}
 </style>
